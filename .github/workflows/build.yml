@@ -129,12 +129,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Restore module source
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: module-src
           path: module
       - name: Restore headers
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: headers-${{ matrix.device }}-${{ matrix.version }}
       - name: Build module
@@ -214,11 +214,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download module
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: module-${{ matrix.device }}-${{ matrix.version }}
       - name: Download tools
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: tools-${{ matrix.arch }}
       - name: Build package
@@ -298,7 +298,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Restore buildroot
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: buildroot
       - name: Extract buildroot
@@ -344,7 +344,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Restore buildroot
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: buildroot
       - name: Extract buildroot
@@ -383,12 +383,12 @@ jobs:
       - name: Prepare
         run: mkdir -p package package/wireguard package/wireguard/modules package/wireguard/tools package/wireguard/etc
       - name: Restore modules
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: modules
           path: package/wireguard/modules
       - name: Restore tools
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: tools
           path: package/wireguard/tools
